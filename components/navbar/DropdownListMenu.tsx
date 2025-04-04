@@ -28,15 +28,23 @@ const DropdownListMenu = () => {
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {links.map((link) => (
-            <DropdownMenuItem key={link.href} asChild>
-              <Link href={link.href} className="cursor-pointer">
-                {link.label}
-              </Link>
-            </DropdownMenuItem>
-          ))}
 
-          <DropdownMenuSeparator />
+          {/* ล็อกอินแล้ว */}
+          <SignedIn>
+            {links.map((link) => (
+              <DropdownMenuItem key={link.href} asChild>
+                <Link href={link.href} className="cursor-pointer">
+                  {link.label}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <SignOutLinks />
+            </DropdownMenuItem>
+          </SignedIn>
+
           <SignedOut>
             <DropdownMenuItem>
               {/* ยังไม่ได้ล็อกอิน */}
@@ -51,14 +59,6 @@ const DropdownListMenu = () => {
               </SignUpButton>
             </DropdownMenuItem>
           </SignedOut>
-
-          {/* ล็อกอินแล้ว */}
-          <SignedIn>
-            <DropdownMenuItem>
-              {/* <UserButton /> */}
-              <SignOutLinks />
-            </DropdownMenuItem>
-          </SignedIn>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

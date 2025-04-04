@@ -13,7 +13,9 @@ const handleLogout = () => {
 const SignOutLinks = () => {
   return (
     <SignOutButton redirectUrl="/">
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout} className="w-full text-left">
+        Logout
+      </button>
     </SignOutButton>
   )
 }
