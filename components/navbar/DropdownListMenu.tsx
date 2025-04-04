@@ -11,6 +11,8 @@ import {
 import { Button } from '../ui/button'
 import { links } from '@/utils/links'
 import Link from 'next/link'
+import SignOutLinks from './SignOutLinks'
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs'
 
 const DropdownListMenu = () => {
   return (
@@ -33,6 +35,30 @@ const DropdownListMenu = () => {
               </Link>
             </DropdownMenuItem>
           ))}
+
+          <DropdownMenuSeparator />
+          <SignedOut>
+            <DropdownMenuItem>
+              {/* ยังไม่ได้ล็อกอิน */}
+              <SignInButton mode="modal">
+                <button className="w-full text-left">Login</button>
+              </SignInButton>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem>
+              <SignUpButton mode="modal">
+                <button className="w-full text-left">Register</button>
+              </SignUpButton>
+            </DropdownMenuItem>
+          </SignedOut>
+
+          {/* ล็อกอินแล้ว */}
+          <SignedIn>
+            <DropdownMenuItem>
+              {/* <UserButton /> */}
+              <SignOutLinks />
+            </DropdownMenuItem>
+          </SignedIn>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
