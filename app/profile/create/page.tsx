@@ -1,23 +1,39 @@
 'use client'
 
 import FormInputs from '@/components/form/FormInputs'
-import PendingButton from '@/components/form/PendingButton'
+import Buttons from '@/components/form/Buttons'
 import { useForm, type FieldValues } from 'react-hook-form'
 import { profileSchema } from '@/utils/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'sonner'
 
 const CreateProfile = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
-  } = useForm({ resolver: zodResolver(profileSchema) })
+  } = useForm({
+    resolver: zodResolver(profileSchema),
+    defaultValues: {
+      firstname: '',
+      lastname: '',
+    },
+  })
 
   const onSubmit = async (data: FieldValues) => {
     // Simulate an API call
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
     console.log(data)
+
+    toast.success('Profile created successfully', {
+      description: 'Your profile has been created.',
+      duration: 1500,
+      position: 'top-center',
+    })
+
+    reset()
   }
 
   return (
@@ -42,7 +58,7 @@ const CreateProfile = () => {
             />
           </div>
 
-          <PendingButton text="create profile" isPending={isSubmitting} />
+          <Buttons text="create profile" isPending={isSubmitting} />
         </form>
       </div>
     </section>

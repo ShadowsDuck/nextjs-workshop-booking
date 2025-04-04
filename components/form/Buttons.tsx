@@ -1,7 +1,7 @@
 import { Button } from '../ui/button'
 import { LoaderCircle } from 'lucide-react'
 
-const PendingButton = ({ text, isPending }: { text: string; isPending: boolean }) => {
+const Buttons = ({ text, isPending }: { text: string; isPending: boolean }) => {
   return (
     <Button className="mt-2 capitalize" disabled={isPending}>
       {isPending ? (
@@ -15,4 +15,4 @@ const PendingButton = ({ text, isPending }: { text: string; isPending: boolean }
     </Button>
   )
 }
-export default PendingButton
+export default Buttons
