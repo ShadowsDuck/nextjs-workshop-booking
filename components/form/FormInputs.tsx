@@ -5,16 +5,17 @@ import { type UseFormRegisterReturn, type FieldErrors } from 'react-hook-form'
 interface FormInputsProps {
   register: UseFormRegisterReturn<string>
   name: string
+  label: string
   type: string
   placeholder: string
   errors: FieldErrors
 }
 
-const FormInputs = ({ register, name, type, placeholder, errors }: FormInputsProps) => {
+const FormInputs = ({ register, name, label, type, placeholder, errors }: FormInputsProps) => {
   return (
     <div>
-      <Label htmlFor={name} className="mb-2 capitalize">
-        {name}
+      <Label htmlFor={label} className="mb-2 capitalize">
+        {label}
       </Label>
       <Input
         {...register}
