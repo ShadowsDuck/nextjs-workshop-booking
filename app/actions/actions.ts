@@ -51,8 +51,8 @@ export const handleLandmarkCreate = async (data: FieldValues) => {
     if (!user) {
       throw new Error('Please sign in')
     }
-
-    return { success: true }
+    
+    return
   } catch {
     throw new Error('Failed to create landmark')
   }

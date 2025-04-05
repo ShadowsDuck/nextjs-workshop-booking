@@ -31,7 +31,7 @@ const FormContainer = ({
   })
   const router = useRouter()
 
-  const { handleSubmit, reset } = formMethods
+  const { handleSubmit, reset, setValue } = formMethods
 
   const onSubmit = async (data: FieldValues) => {
     try {

@@ -14,7 +14,7 @@ interface FormInputsProps {
 const FormInputs = ({ register, name, label, type, placeholder, errors }: FormInputsProps) => {
   return (
     <div>
-      <Label htmlFor={label} className="mb-2 capitalize">
+      <Label htmlFor={name} className="mb-2 capitalize">
         {label}
       </Label>
       <Input
